@@ -7,9 +7,10 @@
  * 启动框架
  */
 
-define('imooc',realpath('./')); // 根目录
+ define('imooc',realpath('./')); // 根目录
  define('core', imooc.'/core'); // 核心文件
  define('app', imooc.'/app'); // 项目 控制器 模型
+ define('module', 'app'); // 模块
 
  define('debug', true);     
 
