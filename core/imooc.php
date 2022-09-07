@@ -4,12 +4,15 @@ namespace core;
 
 class imooc
 {
-  // 数组缓存已经加载的类库
+  // 数组 缓存已经加载的类库
   public static $classMap = array();
   public $assign;
   // 主执行
   static public function run()
   {
+    // 加载日志
+    \core\lib\log::init();
+    \core\lib\log::log('test');
     // p("ok");
     // 加载路由
     $route = new \core\lib\route();
@@ -18,7 +21,7 @@ class imooc
     $ctrlClass = $route->ctrl;
     $action = $route->action;
     // 控制器路径
-    $ctrlfile = core.'/'.module.'/ctrl/'.$ctrlClass.'Controller.php';
+    $ctrlfile = module.'/ctrl/'.$ctrlClass.'Controller.php';
     // p($ctrlfile);exit(); // D:\php\xampp\htdocs\php-framework-imooc/app/ctrl/indexController.php
     // $ctrlClassPath = '\app\ctrl\indexController' 应该是这样的路径
     $ctrlClassPath = '\\'.module.'\ctrl\\'.$ctrlClass.'Controller';
@@ -58,7 +61,7 @@ class imooc
   }
 
   public function display($file) {
-    $file = core.'/'.module.'/views/'.$file;
+    $file = module.'/views/'.$file;
     if(is_file($file)){
       extract($this->assign);
       include $file;
