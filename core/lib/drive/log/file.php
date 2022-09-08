@@ -20,10 +20,10 @@ class file
      * 新建目录
      * 写入日志
      */
-    if(!is_dir($this->path)){
-      mkdir($this->path, '0777', true);
+    if(!is_dir($this->path.date('YmdH'))){
+      mkdir($this->path.date('YmdH'), '0777', true);
     }
-    $message .= date('Y-m-d H:i:s');
-    file_put_contents($this->path.$file.'.php',json_encode($message));
+    // .date('YmdH') 作用是1小时生成一个文件 PHP_EOL 换行
+    return file_put_contents($this->path.date('YmdH').'/'.$file.'.php',date('Y-m-d H:i:s') . ' ' . json_encode($message).PHP_EOL, FILE_APPEND);
   }
 }

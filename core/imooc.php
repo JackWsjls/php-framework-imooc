@@ -12,7 +12,9 @@ class imooc
   {
     // 加载日志
     \core\lib\log::init();
-    \core\lib\log::log('test');
+    // \core\lib\log::log('test');
+    // \core\lib\log::log($_SERVER);
+    // \core\lib\log::log($_SERVER, "server");
     // p("ok");
     // 加载路由
     $route = new \core\lib\route();
@@ -31,6 +33,7 @@ class imooc
       include $ctrlfile;
       $ctrl = new $ctrlClassPath();
       $ctrl->$action();
+      \core\lib\log::log('ctrl:'.$ctrlClass.' '.'action:'.$action);
     } else {
       throw new \Exception('找不到控制器'.$ctrlClass);
     }
@@ -39,7 +42,7 @@ class imooc
   static public function load($class)
   {
     // 自动加载类库     
-    // new \core\route();     // $class='\core\route';     // imooc.'/core/route.php';
+    // new \core\route();     // $class='\core\route'; // imooc.'/core/route.php';
     if (isset($classMap[$class])) {
       return true;
     } else {
