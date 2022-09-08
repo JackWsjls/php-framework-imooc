@@ -20,7 +20,8 @@ class indexController extends \core\imooc
 
     // $temp = \core\lib\conf::get('CTRL', 'route');
     // $temp = \core\lib\conf::get('ACTION', 'route');
-
+    
+    // *********medoo*********
     // $model = new model();
     // dump($model);
     // 查询数据
@@ -37,20 +38,32 @@ class indexController extends \core\imooc
     // $ret = $model->insert("job", $data);
     // dump($ret);
 
-    $model = new \app\model\jobModel();
-    $ret = $model->lists();
-    // dump($ret);
+    // $model = new \app\model\jobModel();
+    // $ret = $model->lists();
+    // // dump($ret);
 
-    $data = array(
-      'name'=>'敏燕2'
-    );
-    $updateOne = $model->updateOne(22, $data);
-    dump($updateOne);
+    // $data = array(
+    //   'name'=>'敏燕2'
+    // );
+    // $updateOne = $model->updateOne(22, $data);
+    // dump($updateOne);
 
-    $deleteOne = $model->deleteOne(22);
-    dump($deleteOne);
+    // $deleteOne = $model->deleteOne(22);
+    // dump($deleteOne);
 
-    $retOne = $model->getOne(22);
-    dump($retOne);
+    // $retOne = $model->getOne(22);
+    // dump($retOne);
+
+    // *********twig*********
+    $data = "hello world";
+    $this->assign('data', $data);
+    $this->display("index.html");
+  }
+
+  public function test()
+  {
+    $data = "index2";
+    $this->assign('data', $data);
+    $this->display("index2.html");
   }
 }
