@@ -1,0 +1,13 @@
+{
+  "name": "php/framework",
+  "description": "PHP Framework",
+  "keywords": [
+    "PHP", "PHP Framework"
+  ],
+  "require": {
+    "php": ">= 5.3.0",
+    "filp/whoops": "*",
+    "symfony/var-dumper": "*",
+    "catfan/medoo": "^2.1"
+  }
+}

@@ -4,6 +4,10 @@
 
 入口文件 定义常量 引入函数库 自动加载类 启动框架 路由解析 加载控制器 返回结果
 
+## 引入composer
+
+<https://github.com/filp/whoops>
+
 ## 学习地址
 
 <https://www.imooc.com/learn/696>
