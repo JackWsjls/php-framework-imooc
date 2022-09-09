@@ -64,19 +64,16 @@ class imooc
   }
 
   public function display($file) {
-    $file = module.'/views/'.$file;
-    if(is_file($file)){
-      extract($this->assign);
-      // include $file;
-
+    $filename = module.'/views/'.$file;
+    if(is_file($filename)){
       // 使用 twig
       $loader = new \Twig\Loader\FilesystemLoader(app.'/views');
       $twig = new \Twig\Environment($loader, [
           'cache' => imooc.'/log/twig',
           'debug' => debug
       ]);
-      $template = $twig->load('index.html');
-      $template->display($this->assign?$this->assign:'');
+      $template = $twig->load($file);
+      $template->display($this->assign?$this->assign:array());
     }
   }
 

@@ -1,4 +1,15 @@
   {% extends "layout.html" %}
   {% block content %}
-  {{data}}
+  <div>
+    <ul style="display: flex;flex-direction: row;align-items: center;">
+      {% for val in data %}
+      <li style="margin-right: 20px;">
+        <h1>{{val.title}}</h1>
+        <p>{{val.content}}</p>
+        <p>{{val.createTime|date('Y-m-d H:i:s')}}</p>
+        <a href="/php-framework-imooc/index/del/id/{{val.id}}" rel="noopener noreferrer">删除</a>
+      </li>
+      {%  endfor %}
+    </ul>
+  </div>
   {% endblock %}
